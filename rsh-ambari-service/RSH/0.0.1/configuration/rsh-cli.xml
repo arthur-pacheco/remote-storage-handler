@@ -1,0 +1,30 @@
+<configuration xmlns:xi="http://www.w3.org/2001/XInclude" supports_final="true">
+	
+	<property>
+		<display-name>Number of splits</display-name>
+		<name>num.splits</name>
+		<value>10</value>
+		<description>Number of splits per job</description>
+		<value-attributes>
+	  		<type>int</type>
+		</value-attributes>
+		<on-ambari-upgrade add="true"/>
+	</property>
+
+	<property>
+    	<display-name>File Provider Server REST</display-name>
+    	<name>file.provider.rest</name>
+    	<value>http://METASTORE-HOST:METASTORE-PORT</value>
+    	<description>Metastore Server REST address</description>
+  	</property>
+
+  	<property>
+    	<display-name>Remote File Provider</display-name>
+    	<name>rfp.connection.str</name>
+    	<value>http://localhost:8080/fileProvider</value>
+    	<description>File provider root endpoint</description>
+  	</property>
+
+
+  	
+</configuration>

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<metainfo>
+    <schemaVersion>2.0</schemaVersion>
+
+    <services>
+
+        <service>
+
+            <name>RSH</name>
+            <displayName>RSH</displayName>
+            <comment>Remote Storage Handler</comment>
+            <version>0.0.1</version>
+
+            <components>
+
+                <component>
+                    <name>RSH-Metastore</name>
+                    <displayName>RSH Metastore</displayName>
+                    <category>MASTER</category>
+                    <cardinality>1</cardinality>
+                    <timelineAppid>RSH-Metastore</timelineAppid>
+                    <commandScript>
+                        <script>scripts/rsh-metastore.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
+                    <configFiles>
+                        <configFile>
+                            <type>xml</type>
+                            <fileName>rsh-metastore.xml</fileName>
+                            <dictionaryName>rsh-metastore</dictionaryName>
+                        </configFile>
+                    </configFiles>
+                    <configuration-dependencies>
+            			<config-type>rsh-metastore</config-type>
+          			</configuration-dependencies>
+                </component>
+
+                <component>
+                    <name>RSH-CLI</name>
+                    <displayName>RSH Client</displayName>
+                    <category>CLIENT</category>
+                    <cardinality>1+</cardinality>
+                    <timelineAppid>RSH-CLI</timelineAppid>
+                    <commandScript>
+                        <script>scripts/rsh-cli.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
+                    <configFiles>
+                        <configFile>
+                            <type>xml</type>
+                            <fileName>rsh-cli.xml</fileName>
+                            <dictionaryName>rsh-cli</dictionaryName>
+                        </configFile>
+                    </configFiles>
+                    <configuration-dependencies>
+            			<config-type>rsh-cli</config-type>
+          			</configuration-dependencies>
+                </component>
+                
+            </components>
+
+            <osSpecifics>
+                <osSpecific>
+                    <osFamily>any</osFamily>
+                </osSpecific>
+            </osSpecifics>
+
+            <restartRequiredAfterChange>true</restartRequiredAfterChange>
+
+        </service>
+
+    </services>
+
+</metainfo>
